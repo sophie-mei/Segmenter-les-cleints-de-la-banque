@@ -234,7 +234,7 @@ y_kmeans = kmeans.fit_predict(scaled_data)
 # concaténer les nouveaux labels de clusters réduits à notre cadre de données initial
 creditcard_df_cluster_new = pd.concat([data, pd.DataFrame({'cluster':labels})], axis = 1)
 
-# Plot the histogram of various clusters
+# Plot histograme
 for i in data.columns:
   plt.figure(figsize = (20, 5))
   for j in range(4):
@@ -248,7 +248,7 @@ for i in data.columns:
 pca = PCA(n_components=2)
 principal_comp_new = pca.fit_transform(pred_ac)
 
-# Create a dataframe with the two components
+# Crée un dataframe avec 2 composants
 pca_df = pd.DataFrame(data=principal_comp_new,columns=['pca1','pca2'])
 
 pca_df = pd.concat([pca_df,pd.DataFrame({'cluster':labels})], axis = 1)
